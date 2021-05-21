@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <ApplicationIcon>icons8_keyboard.ico</ApplicationIcon>
+    <ApplicationIcon>icons8_command_sergeant_major_csm.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

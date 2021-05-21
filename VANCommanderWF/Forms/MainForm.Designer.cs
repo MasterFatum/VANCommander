@@ -66,6 +66,7 @@ namespace VANCommanderWF
             this.btn_newFolder2 = new System.Windows.Forms.Button();
             this.btn_delete2 = new System.Windows.Forms.Button();
             this.btn_move2 = new System.Windows.Forms.Button();
+            this.btn_openVanZonder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -76,6 +77,7 @@ namespace VANCommanderWF
             // 
             // cbx_LocalDrive1
             // 
+            this.cbx_LocalDrive1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.cbx_LocalDrive1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_LocalDrive1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbx_LocalDrive1.FormattingEnabled = true;
@@ -113,6 +115,7 @@ namespace VANCommanderWF
             this.btn_move1.Text = "Переместить";
             this.btn_move1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_move1.UseVisualStyleBackColor = false;
+            this.btn_move1.Click += new System.EventHandler(this.btn_move1_Click);
             // 
             // btn_delete1
             // 
@@ -318,11 +321,12 @@ namespace VANCommanderWF
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(942, 12);
+            this.button3.Location = new System.Drawing.Point(933, 12);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(102, 36);
+            this.button3.Size = new System.Drawing.Size(111, 36);
             this.button3.TabIndex = 11;
             this.button3.Text = "Настройки";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -332,7 +336,7 @@ namespace VANCommanderWF
             // 
             this.btn_exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_exit.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_exit.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_exit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_exit.Image = ((System.Drawing.Image)(resources.GetObject("btn_exit.Image")));
             this.btn_exit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_exit.Location = new System.Drawing.Point(1050, 12);
@@ -383,7 +387,7 @@ namespace VANCommanderWF
             this.txb_search2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txb_search2.Location = new System.Drawing.Point(162, 50);
             this.txb_search2.Name = "txb_search2";
-            this.txb_search2.PlaceholderText = "Введите текс";
+            this.txb_search2.PlaceholderText = "Введите текст";
             this.txb_search2.Size = new System.Drawing.Size(280, 29);
             this.txb_search2.TabIndex = 16;
             // 
@@ -529,12 +533,29 @@ namespace VANCommanderWF
             this.btn_move2.Text = "Переместить";
             this.btn_move2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_move2.UseVisualStyleBackColor = false;
+            this.btn_move2.Click += new System.EventHandler(this.btn_move2_Click);
+            // 
+            // btn_openVanZonder
+            // 
+            this.btn_openVanZonder.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_openVanZonder.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_openVanZonder.Image = ((System.Drawing.Image)(resources.GetObject("btn_openVanZonder.Image")));
+            this.btn_openVanZonder.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_openVanZonder.Location = new System.Drawing.Point(816, 12);
+            this.btn_openVanZonder.Name = "btn_openVanZonder";
+            this.btn_openVanZonder.Size = new System.Drawing.Size(111, 36);
+            this.btn_openVanZonder.TabIndex = 14;
+            this.btn_openVanZonder.Text = "Van Zonder";
+            this.btn_openVanZonder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_openVanZonder.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1140, 569);
+            this.Controls.Add(this.btn_openVanZonder);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.button3);
@@ -606,6 +627,7 @@ namespace VANCommanderWF
         private System.Windows.Forms.Button btn_delete2;
         private System.Windows.Forms.Button btn_move2;
         private System.Windows.Forms.Button btn_update1;
+        private System.Windows.Forms.Button btn_openVanZonder;
     }
 }
 

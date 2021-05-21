@@ -153,7 +153,7 @@ namespace VANCommanderWF
                 if (result == DialogResult.Yes)
                 {
                     bll.RemoveDirectory(FullPathOnClickPanel1);
-                    bll.GetAllFolderAndFiles(lbPanel1, txb_path1.Text);
+                    bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
                 }
             }
             else if (File.Exists(FullPathOnClickPanel1)) // Удаление файла
@@ -164,8 +164,7 @@ namespace VANCommanderWF
                 if (result == DialogResult.Yes)
                 {
                     bll.RemoveFile(FullPathOnClickPanel1);
-                    bll.GetAllFolderAndFiles(lbPanel1, txb_path1.Text);
-                    bll.GetAllFolderAndFiles(lbPanel2, txb_path2.Text);
+                    bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
                 }
             }
         }
@@ -180,7 +179,7 @@ namespace VANCommanderWF
                 if (result == DialogResult.Yes)
                 {
                     bll.RemoveDirectory(FullPathOnClickPanel2);
-                    bll.GetAllFolderAndFiles(lbPanel2, txb_path2.Text);
+                    bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
                 }
             }
             else if (File.Exists(FullPathOnClickPanel2)) // Удаление файла
@@ -191,8 +190,7 @@ namespace VANCommanderWF
                 if (result == DialogResult.Yes)
                 {
                     bll.RemoveFile(FullPathOnClickPanel2);
-                    bll.GetAllFolderAndFiles(lbPanel2, txb_path2.Text);
-                    bll.GetAllFolderAndFiles(lbPanel1, txb_path1.Text);
+                    bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
                 }
             }
         }
@@ -253,19 +251,44 @@ namespace VANCommanderWF
         private void btn_copy1_Click(object sender, EventArgs e)
         {
             string fileName = Path.GetFileName(lbPanel1.SelectedItem.ToString());
+            
 
-            if (!File.Exists(txb_path2.Text.Trim() + "\\" + fileName))
+            if (Directory.Exists(FullPathOnClickPanel1)) // Копирование дериктории
             {
-                bll.CopyFile(lbPanel1.SelectedItem.ToString(), txb_path2.Text + "\\" + fileName);
-            }
-            else
-            {
-                DialogResult result = MessageBox.Show("Файл уже существует! Заменить?", "Копирование...",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                if (!Directory.Exists(txb_path2.Text.Trim() + "\\" + fileName))
                 {
-                    bll.RemoveFile(txb_path2.Text.Trim() + "\\" + fileName);
+                    bll.CopyDirectory(lbPanel1.SelectedItem.ToString(), txb_path2.Text + "\\" + fileName);
+                    bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Директория уже существует! Заменить?", "Копирование...",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        bll.RemoveDirectory(txb_path2.Text.Trim() + "\\" + fileName);
+                        bll.CopyDirectory(lbPanel1.SelectedItem.ToString(), txb_path2.Text + "\\" + fileName);
+                        bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
+                    }
+                }
+            }
+            else if (File.Exists(FullPathOnClickPanel1)) // Копирование файла
+            {
+                if (!File.Exists(txb_path2.Text.Trim() + "\\" + fileName))
+                {
                     bll.CopyFile(lbPanel1.SelectedItem.ToString(), txb_path2.Text + "\\" + fileName);
+                    bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Файл уже существует! Заменить?", "Копирование...",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        bll.RemoveFile(txb_path2.Text.Trim() + "\\" + fileName);
+                        bll.CopyFile(lbPanel1.SelectedItem.ToString(), txb_path2.Text + "\\" + fileName);
+                        bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
+                    }
                 }
             }
         }
@@ -274,18 +297,86 @@ namespace VANCommanderWF
         {
             string fileName = Path.GetFileName(lbPanel2.SelectedItem.ToString());
 
-            if (!File.Exists(txb_path1.Text.Trim() + "\\" + fileName))
+            if (Directory.Exists(FullPathOnClickPanel2)) // Копирование дериктории
             {
-                bll.CopyFile(lbPanel2.SelectedItem.ToString(), txb_path1.Text + "\\" + fileName);
+                if (!Directory.Exists(txb_path1.Text.Trim() + "\\" + fileName))
+                {
+                    bll.CopyDirectory(lbPanel2.SelectedItem.ToString(), txb_path1.Text + "\\" + fileName);
+                    bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Директория уже существует! Заменить?", "Копирование...",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        bll.RemoveDirectory(txb_path1.Text.Trim() + "\\" + fileName);
+                        bll.CopyDirectory(lbPanel2.SelectedItem.ToString(), txb_path1.Text + "\\" + fileName);
+                        bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
+                    }
+                }
+            }
+            else if (File.Exists(FullPathOnClickPanel2)) // Копирование файла
+            {
+                if (!File.Exists(txb_path1.Text.Trim() + "\\" + fileName))
+                {
+                    bll.CopyFile(lbPanel2.SelectedItem.ToString(), txb_path1.Text + "\\" + fileName);
+                    bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Файл уже существует! Заменить?", "Копирование...",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        bll.RemoveFile(txb_path1.Text.Trim() + "\\" + fileName);
+                        bll.CopyFile(lbPanel2.SelectedItem.ToString(), txb_path1.Text + "\\" + fileName);
+                        bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
+                    }
+                }
+            }
+        }
+
+        private void btn_move1_Click(object sender, EventArgs e)
+        {
+            string fileName = Path.GetFileName(lbPanel1.SelectedItem.ToString());
+
+            if (!File.Exists(txb_path2.Text.Trim() + "\\" + fileName))
+            {
+                bll.MoveDirectory(lbPanel1.SelectedItem.ToString(), txb_path2.Text + "\\" + fileName);
+                bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
             }
             else
             {
-                DialogResult result = MessageBox.Show("Файл уже существует! Заменить?", "Копирование...",
+                DialogResult result = MessageBox.Show("Директория уже существует! Заменить?", "Перемещение...",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    bll.RemoveFile(txb_path1.Text.Trim() + "\\" + fileName);
-                    bll.CopyFile(lbPanel2.SelectedItem.ToString(), txb_path1.Text + "\\" + fileName);
+                    bll.RemoveDirectory(txb_path2.Text.Trim() + "\\" + fileName);
+                    bll.MoveDirectory(lbPanel1.SelectedItem.ToString(), txb_path2.Text + "\\" + fileName);
+                    bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
+                }
+            }
+        }
+
+        private void btn_move2_Click(object sender, EventArgs e)
+        {
+            string fileName = Path.GetFileName(lbPanel2.SelectedItem.ToString());
+
+            if (!File.Exists(txb_path1.Text.Trim() + "\\" + fileName))
+            {
+                bll.MoveDirectory(lbPanel2.SelectedItem.ToString(), txb_path1.Text + "\\" + fileName);
+                bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Директория уже существует! Заменить?", "Перемещение...",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    bll.RemoveDirectory(txb_path1.Text.Trim() + "\\" + fileName);
+                    bll.MoveDirectory(lbPanel2.SelectedItem.ToString(), txb_path1.Text + "\\" + fileName);
+                    bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
                 }
             }
         }

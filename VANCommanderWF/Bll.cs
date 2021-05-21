@@ -54,6 +54,12 @@ namespace VANCommanderWF
             }
         }
 
+        public void UpdatePanels(ListBox listBox1, ListBox listBox2, String path1, String path2)
+        {
+            GetAllFolderAndFiles(listBox1, path1);
+            GetAllFolderAndFiles(listBox2, path2);
+        }
+
         public void CreateDirectory(string path, string name)
         {
             try
@@ -72,7 +78,7 @@ namespace VANCommanderWF
         {
             try
             {
-                DirectoryInfo directory = new DirectoryInfo(String.Format(path));
+                DirectoryInfo directory = new DirectoryInfo(path);
                 directory.Delete(true);
             }
             catch (Exception ex)
@@ -110,18 +116,6 @@ namespace VANCommanderWF
             
         }
 
-        public void CopyDirectory(string source, string destination)
-        {
-            try
-            {
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         public void RemoveFile(string source)
         {
             try
@@ -132,7 +126,48 @@ namespace VANCommanderWF
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
+        }
+
+        public void CopyDirectory(string source, string destination)
+        {
+            try
+            {
+                if (!Directory.Exists(destination))
+                {
+                    Directory.CreateDirectory(destination);
+
+                    string[] files = Directory.GetFiles(source);
+                    
+                    foreach (string file in files)
+                    {
+                        string fileName = Path.GetFileName(file);
+                        
+                        File.Copy(file, destination + "\\" + fileName, true);
+                    }
+                }
+                else
+                {
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void MoveDirectory(string source, string destination)
+        {
+            try
+            {
+                Directory.Move(source, destination);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
