@@ -79,9 +79,9 @@ namespace VANCommanderWF
             this.cbx_LocalDrive1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_LocalDrive1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbx_LocalDrive1.FormattingEnabled = true;
-            this.cbx_LocalDrive1.Location = new System.Drawing.Point(15, 5);
+            this.cbx_LocalDrive1.Location = new System.Drawing.Point(16, 5);
             this.cbx_LocalDrive1.Name = "cbx_LocalDrive1";
-            this.cbx_LocalDrive1.Size = new System.Drawing.Size(53, 33);
+            this.cbx_LocalDrive1.Size = new System.Drawing.Size(52, 33);
             this.cbx_LocalDrive1.TabIndex = 1;
             this.cbx_LocalDrive1.SelectedIndexChanged += new System.EventHandler(this.cbx_LocalDrive1_SelectedIndexChanged);
             // 
@@ -282,7 +282,7 @@ namespace VANCommanderWF
             this.btn_Ld1.Image = ((System.Drawing.Image)(resources.GetObject("btn_Ld1.Image")));
             this.btn_Ld1.Location = new System.Drawing.Point(74, 5);
             this.btn_Ld1.Name = "btn_Ld1";
-            this.btn_Ld1.Size = new System.Drawing.Size(37, 33);
+            this.btn_Ld1.Size = new System.Drawing.Size(42, 33);
             this.btn_Ld1.TabIndex = 9;
             this.btn_Ld1.UseVisualStyleBackColor = false;
             this.btn_Ld1.Click += new System.EventHandler(this.btn_Ld_Click);
@@ -440,7 +440,7 @@ namespace VANCommanderWF
             this.btn_Ld2.Image = ((System.Drawing.Image)(resources.GetObject("btn_Ld2.Image")));
             this.btn_Ld2.Location = new System.Drawing.Point(75, 5);
             this.btn_Ld2.Name = "btn_Ld2";
-            this.btn_Ld2.Size = new System.Drawing.Size(37, 33);
+            this.btn_Ld2.Size = new System.Drawing.Size(42, 33);
             this.btn_Ld2.TabIndex = 15;
             this.btn_Ld2.UseVisualStyleBackColor = false;
             this.btn_Ld2.Click += new System.EventHandler(this.btn_Ld2_Click);
@@ -462,9 +462,9 @@ namespace VANCommanderWF
             this.cbx_LocalDrive2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_LocalDrive2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbx_LocalDrive2.FormattingEnabled = true;
-            this.cbx_LocalDrive2.Location = new System.Drawing.Point(16, 5);
+            this.cbx_LocalDrive2.Location = new System.Drawing.Point(17, 5);
             this.cbx_LocalDrive2.Name = "cbx_LocalDrive2";
-            this.cbx_LocalDrive2.Size = new System.Drawing.Size(53, 33);
+            this.cbx_LocalDrive2.Size = new System.Drawing.Size(52, 33);
             this.cbx_LocalDrive2.TabIndex = 20;
             this.cbx_LocalDrive2.SelectedIndexChanged += new System.EventHandler(this.cbx_LocalDrive2_SelectedIndexChanged);
             // 

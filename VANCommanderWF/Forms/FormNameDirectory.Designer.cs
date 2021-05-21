@@ -63,6 +63,7 @@ namespace VANCommanderWF.Forms
             this.Name = "FormNameDirectory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Имя директории";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormNameDirectory_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -119,12 +119,12 @@ namespace VANCommanderWF
 
         private void btn_newFolder_Click(object sender, EventArgs e)
         {
-            new FormNameDirectory(txb_path1.Text).ShowDialog();
+            new FormNameDirectory(txb_path1.Text, txb_path2.Text, lbPanel1, lbPanel2).ShowDialog();
         }
 
         private void btn_newFolder2_Click(object sender, EventArgs e)
         {
-            new FormNameDirectory(txb_path2.Text).ShowDialog();
+            new FormNameDirectory(txb_path2.Text, txb_path1.Text, lbPanel2, lbPanel1).ShowDialog();
         }
 
         private void btn_update_Click(object sender, EventArgs e)
