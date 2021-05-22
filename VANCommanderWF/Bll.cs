@@ -113,7 +113,6 @@ namespace VANCommanderWF
             {
                 MessageBox.Show(ex.Message);
             }
-            
         }
 
         public void RemoveFile(string source)
@@ -126,7 +125,6 @@ namespace VANCommanderWF
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         public void CopyDirectory(string source, string destination)
@@ -146,11 +144,6 @@ namespace VANCommanderWF
                         File.Copy(file, destination + "\\" + fileName, true);
                     }
                 }
-                else
-                {
-
-                }
-
             }
             catch (Exception ex)
             {
