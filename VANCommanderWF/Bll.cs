@@ -169,5 +169,37 @@ namespace VANCommanderWF
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void Search(string path, string fileName, ListBox listBox)
+        {
+            string[] directories = Directory.GetDirectories(path);
+            string[] files = Directory.GetFiles(path);
+
+            foreach (string file in directories)
+            {
+                string directoryNameCut = Path.GetFileName(file);
+
+                if (fileName == directoryNameCut)
+                {
+                    directoryNameCut = Path.GetFullPath(file);
+
+                    listBox.Items.Clear();
+                    listBox.Items.Add(directoryNameCut);
+                }
+            }
+
+            foreach (string file in files)
+            {
+                string fileNameCut = Path.GetFileName(file);
+
+                if (fileName == fileNameCut)
+                {
+                    fileNameCut = Path.GetFullPath(file);
+
+                    listBox.Items.Clear();
+                    listBox.Items.Add(fileNameCut);
+                }
+            }
+        }
     }
 }

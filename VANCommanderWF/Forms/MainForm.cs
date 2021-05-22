@@ -215,6 +215,14 @@ namespace VANCommanderWF
 
         private void lbPanel1_Click(object sender, EventArgs e)
         {
+            btn_copy1.Enabled = true;
+            btn_delete1.Enabled = true;
+            btn_move1.Enabled = true;
+
+            btn_copy2.Enabled = false;
+            btn_delete2.Enabled = false;
+            btn_move2.Enabled = false;
+
             if (lbPanel1.SelectedItem != null)
             {
                 FullPathOnClickPanel1 = lbPanel1.SelectedItem.ToString();
@@ -223,6 +231,15 @@ namespace VANCommanderWF
 
         private void lbPanel2_Click(object sender, EventArgs e)
         {
+            btn_copy1.Enabled = false;
+            btn_delete1.Enabled = false;
+            btn_move1.Enabled = false;
+
+            btn_copy2.Enabled = true;
+            btn_delete2.Enabled = true;
+            btn_move2.Enabled = true;
+
+
             if (lbPanel2.SelectedItem != null)
             {
                 FullPathOnClickPanel2 = lbPanel2.SelectedItem.ToString();
@@ -379,6 +396,16 @@ namespace VANCommanderWF
                     bll.UpdatePanels(lbPanel1, lbPanel2, txb_path1.Text, txb_path2.Text);
                 }
             }
+        }
+
+        private void btn_search2_Click(object sender, EventArgs e)
+        {
+            bll.Search(txb_path2.Text.Trim(), txb_search2.Text.Trim(), lbPanel2);
+        }
+
+        private void btn_search1_Click(object sender, EventArgs e)
+        {
+            bll.Search(txb_path1.Text.Trim(), txb_search1.Text.Trim(), lbPanel1);
         }
     }
 }

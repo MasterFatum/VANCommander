@@ -236,6 +236,7 @@ namespace VANCommanderWF
             this.btn_search1.Text = "Поиск";
             this.btn_search1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_search1.UseVisualStyleBackColor = false;
+            this.btn_search1.Click += new System.EventHandler(this.btn_search1_Click);
             // 
             // label2
             // 
@@ -403,6 +404,7 @@ namespace VANCommanderWF
             this.btn_search2.Text = "Поиск";
             this.btn_search2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_search2.UseVisualStyleBackColor = false;
+            this.btn_search2.Click += new System.EventHandler(this.btn_search2_Click);
             // 
             // groupBox2
             // 
